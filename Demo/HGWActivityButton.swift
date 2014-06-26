@@ -73,7 +73,7 @@ class HGWActivityButton: UIButton {
                 pathAnimation.removedOnCompletion = false
                 pathAnimation.repeatCount = HUGE
                 pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-                pathAnimation.duration = 300.0 / self.rotatorSpeed
+                pathAnimation.duration = CFTimeInterval(300.0) / CFTimeInterval(self.rotatorSpeed)
                 
                 let curvedPath = CGPathCreateMutable()
                 
