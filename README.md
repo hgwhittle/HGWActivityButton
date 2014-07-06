@@ -5,7 +5,7 @@ A UIButton subclass with a custom, built-in activity indicator
 
 Written in Swift.
 
-![Alt text](https://github.com/hgwhittle/HGWActivityButton/raw/master/screenshot.png)
+![Alt text](https://github.com/hgwhittle/HGWActivityButton/raw/master/screenshot.png?raw=true)
 
 ## Usage
 
