@@ -17,6 +17,7 @@ activityButton.activityTitle = "Loading"
 activityButton.rotatorColor = UIColor.darkGrayColor()
 activityButton.rotatorSize = 8.0
 activityButton.rotatorSpeed = 10.0
+activityButton.rotatorPadding = 8.0
 self.view.addSubview(activityButton)
 ```
 
