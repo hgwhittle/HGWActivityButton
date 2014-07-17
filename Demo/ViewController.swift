@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         activityButton.setTitle("Process", forState: UIControlState.Normal)
         activityButton.activityTitle = "Processing"
         activityButton.rotatorColor = UIColor.blackColor()
-        activityButton.rotatorSize = 16.0
+        activityButton.rotatorSize = 12.0
         activityButton.rotatorSpeed = 8.0
         view.addSubview(activityButton)
         
