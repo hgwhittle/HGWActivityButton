@@ -15,6 +15,7 @@ class HGWActivityButton: UIButton {
     var rotatorColor = UIColor.darkGrayColor()
     var rotatorSize: CGFloat = 8.0
     var rotatorSpeed: CGFloat = 10.0
+    var rotatorPadding: CGFloat = 0.0
     var defaultTitle: NSString = ""
     var activityTitle: NSString = ""
     
@@ -81,9 +82,9 @@ class HGWActivityButton: UIButton {
                 let index = self.activityViewArray.indexOfObject(activityView)
                 
                 let padding = self.frame.size.width / 2;
-                let startAngle: CGFloat = 90.0 - (CGFloat(index) * 4)
-                CGPathAddArc(curvedPath, nil, self.bounds.origin.x+padding, self.bounds.origin.y+padding, padding, self.degreesToRadians(startAngle), 360, false)
-                pathAnimation.path = curvedPath
+                let startAngle: CGFloat = 270.0 - (CGFloat(index) * 4)
+                CGPathAddArc(curvedPath, nil, self.bounds.origin.x+padding, self.bounds.origin.y+padding, padding + self.rotatorPadding, self.degreesToRadians(startAngle), 360, false)
+                pathAnimation.path = curvedPath 
                 
                 activityView.layer.addAnimation(pathAnimation, forKey: "myCircleAnimation")
             }
