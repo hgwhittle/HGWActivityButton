@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let middleMain = self.view.bounds.size.width / 2
-        var middleButton = 100.0 / 2
+        let middleMain: CGFloat = self.view.bounds.size.width / 2
+        var middleButton: CGFloat = 100.0 / 2
         
         activityButton = HGWActivityButton(frame: CGRect(x: middleMain - middleButton, y: 60, width: 100, height: 100))
         activityButton.backgroundColor = UIColor.blueColor()
