@@ -92,7 +92,9 @@ class HGWActivityButton: UIButton {
             }
         }
         
-        self.defaultTitle = self.titleLabel.text;
+        if self.titleLabel.text {
+            self.defaultTitle = self.titleLabel.text;
+        }
         self.activityTitle = self.activityTitle.isEqualToString("") ? self.defaultTitle : self.activityTitle
         self.setTitle(self.activityTitle, forState: UIControlState.Normal)
     }
