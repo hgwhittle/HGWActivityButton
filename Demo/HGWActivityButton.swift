@@ -11,9 +11,10 @@
 import UIKit
 import QuartzCore
 
-class HGWActivityButton: UIButton {
+class HGWActivityButton: UIControl {
     
-    var activityViewArray = NSMutableArray(capacity: 0)
+    private let activityViewArray = NSMutableArray(capacity: 0)
+    let titleLabel = UILabel()
     var rotatorColor = UIColor.darkGrayColor()
     var rotatorSize: CGFloat = 8.0
     var rotatorSpeed: CGFloat = 10.0
@@ -21,39 +22,50 @@ class HGWActivityButton: UIButton {
     var defaultTitle: NSString = ""
     var activityTitle: NSString = ""
     
-    init(frame: CGRect) {
+    public init(frame: CGRect) {
         super.init(frame: frame)
         
         self.setUp()
     }
     
-    init(coder aDecoder: NSCoder!)  {
+    public init(coder aDecoder: NSCoder!)  {
         super.init(coder: aDecoder)
         
         self.setUp()
     }
     
-    func setUp() {
+    private func setUp() {
         
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.width)
         self.layer.cornerRadius = self.frame.size.width / 2
-        self.addTarget(self, action: Selector("onTouchUpInside"), forControlEvents: UIControlEvents.TouchUpInside)
-        self.addTarget(self, action: Selector("onTouchDown"), forControlEvents: UIControlEvents.TouchDown)
+        
+        titleLabel.frame = self.bounds
+        titleLabel.textAlignment = NSTextAlignment.Center
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.userInteractionEnabled = false
+        self.addSubview(titleLabel)
     }
     
-    func onTouchUpInside() {
+    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
         
-        if(self.activityViewArray.count < 1) {
-            self.startActivity()
+        let touch: AnyObject! = touches.anyObject()
+        let touchPoint = touch.locationInView(self)
+        
+        if CGRectContainsPoint(self.bounds, touchPoint) {
+            if(self.activityViewArray.count < 1) {
+                self.startActivity()
+            }
+            
+            self.userInteractionEnabled = false
         }
         
-        self.userInteractionEnabled = false;
         self.titleLabel.alpha = 1.0
+        super.touchesEnded(touches, withEvent: event)
     }
     
-    func onTouchDown() {
-        
-        self.titleLabel.alpha = 0.25;
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+        self.titleLabel.alpha = 0.25
+        super.touchesBegan(touches, withEvent: event)
     }
     
     func startActivity() {
@@ -96,7 +108,7 @@ class HGWActivityButton: UIButton {
             self.defaultTitle = self.titleLabel.text;
         }
         self.activityTitle = self.activityTitle.isEqualToString("") ? self.defaultTitle : self.activityTitle
-        self.setTitle(self.activityTitle, forState: UIControlState.Normal)
+        self.titleLabel.text = self.activityTitle
     }
     
     func stopActivity() {
@@ -109,14 +121,18 @@ class HGWActivityButton: UIButton {
         }
         
         if(!self.defaultTitle.isEqualToString("")) {
-            self.setTitle(self.defaultTitle, forState: UIControlState.Normal)
+            self.titleLabel.text = self.defaultTitle
         }
         
         self.activityViewArray.removeAllObjects();
         self.userInteractionEnabled = true;
     }
     
-    func degreesToRadians(degrees: CGFloat) -> CGFloat {
+    func setTitle(title: NSString) {
+        titleLabel.text = title
+    }
+    
+    private func degreesToRadians(degrees: CGFloat) -> CGFloat {
         
         let result = ((degrees) / 180.0 * CGFloat(M_PI))
         return result
