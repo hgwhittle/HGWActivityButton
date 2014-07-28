@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         
         activityButton = HGWActivityButton(frame: CGRect(x: middleMain - middleButton, y: 60, width: 100, height: 100))
         activityButton.backgroundColor = UIColor.blueColor()
-        activityButton.setTitle("Process", forState: UIControlState.Normal)
+        activityButton.titleLabel.text = "Process"
         activityButton.activityTitle = "Processing"
         activityButton.rotatorColor = UIColor.blackColor()
         activityButton.rotatorSize = 12.0
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         
         activityButton2 = HGWActivityButton(frame: CGRect(x: middleMain - middleButton, y: 227, width: 76, height: 76))
         activityButton2.backgroundColor = UIColor.orangeColor()
-        activityButton2.setTitle("Load", forState: UIControlState.Normal)
+        activityButton2.titleLabel.text = "Load"
         activityButton2.activityTitle = "Loading"
         activityButton2.rotatorColor = UIColor.darkGrayColor()
         activityButton2.rotatorSize = 12.0
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         
         activityButton3 = HGWActivityButton(frame: CGRect(x: middleMain - middleButton, y: 375, width: 150, height: 150))
         activityButton3.backgroundColor = UIColor(white: 0.85, alpha: 1.0)
-        activityButton3.setTitle("Download", forState: UIControlState.Normal)
+        activityButton3.titleLabel.text = "Download";
         activityButton3.activityTitle = "Downloading"
         activityButton3.rotatorColor = UIColor.blueColor()
         activityButton3.rotatorSize = 16.0
@@ -63,4 +63,3 @@ class ViewController: UIViewController {
 
 
 }
-
