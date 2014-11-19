@@ -22,13 +22,13 @@ class HGWActivityButton: UIControl {
     var defaultTitle: NSString = ""
     var activityTitle: NSString = ""
     
-    public init(frame: CGRect) {
+    internal override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.setUp()
     }
     
-    public init(coder aDecoder: NSCoder!)  {
+    required init(coder aDecoder: NSCoder)  {
         super.init(coder: aDecoder)
         
         self.setUp()
@@ -46,7 +46,7 @@ class HGWActivityButton: UIControl {
         self.addSubview(titleLabel)
     }
     
-    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         
         let touch: AnyObject! = touches.anyObject()
         let touchPoint = touch.locationInView(self)
@@ -63,7 +63,7 @@ class HGWActivityButton: UIControl {
         super.touchesEnded(touches, withEvent: event)
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.titleLabel.alpha = 0.25
         super.touchesBegan(touches, withEvent: event)
     }
@@ -104,9 +104,10 @@ class HGWActivityButton: UIControl {
             }
         }
         
-        if self.titleLabel.text {
-            self.defaultTitle = self.titleLabel.text;
+        if (self.titleLabel.text != nil) {
+            self.defaultTitle = self.titleLabel.text!;
         }
+        
         self.activityTitle = self.activityTitle.isEqualToString("") ? self.defaultTitle : self.activityTitle
         self.titleLabel.text = self.activityTitle
     }

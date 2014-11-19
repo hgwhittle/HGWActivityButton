@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  Demo
@@ -10,10 +11,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var activityButton = HGWActivityButton()
-    var activityButton2 = HGWActivityButton()
-    var activityButton3 = HGWActivityButton()
-                            
+    var activityButton: HGWActivityButton
+    var activityButton2: HGWActivityButton
+    var activityButton3: HGWActivityButton
+    
+    required init(coder aDecoder: NSCoder) {
+        self.activityButton = HGWActivityButton(frame: CGRectZero)
+        self.activityButton2 = HGWActivityButton(frame: CGRectZero)
+        self.activityButton3 = HGWActivityButton(frame: CGRectZero)
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,11 +63,9 @@ class ViewController: UIViewController {
         view.addSubview(activityButton3)
     }
 
-    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!)  {
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent)  {
         activityButton.stopActivity()
         activityButton2.stopActivity()
         activityButton3.stopActivity()
     }
-
-
 }
