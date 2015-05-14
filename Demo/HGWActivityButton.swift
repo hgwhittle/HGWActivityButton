@@ -46,9 +46,9 @@ class HGWActivityButton: UIControl {
         self.addSubview(titleLabel)
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         
-        let touch: AnyObject! = touches.anyObject()
+        let touch: AnyObject! = touches.first;
         let touchPoint = touch.locationInView(self)
         
         if CGRectContainsPoint(self.bounds, touchPoint) {
@@ -60,12 +60,12 @@ class HGWActivityButton: UIControl {
         }
         
         self.titleLabel.alpha = 1.0
-        super.touchesEnded(touches, withEvent: event)
+        super.touchesEnded(touches as Set<NSObject>, withEvent: event)
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.titleLabel.alpha = 0.25
-        super.touchesBegan(touches, withEvent: event)
+        super.touchesBegan(touches as Set<NSObject>, withEvent: event)
     }
     
     func startActivity() {
@@ -109,7 +109,7 @@ class HGWActivityButton: UIControl {
         }
         
         self.activityTitle = self.activityTitle.isEqualToString("") ? self.defaultTitle : self.activityTitle
-        self.titleLabel.text = self.activityTitle
+        self.titleLabel.text = self.activityTitle as String
     }
     
     func stopActivity() {
@@ -122,7 +122,7 @@ class HGWActivityButton: UIControl {
         }
         
         if(!self.defaultTitle.isEqualToString("")) {
-            self.titleLabel.text = self.defaultTitle
+            self.titleLabel.text = self.defaultTitle as String
         }
         
         self.activityViewArray.removeAllObjects();
@@ -130,7 +130,7 @@ class HGWActivityButton: UIControl {
     }
     
     func setTitle(title: NSString) {
-        titleLabel.text = title
+        titleLabel.text = title as String
     }
     
     private func degreesToRadians(degrees: CGFloat) -> CGFloat {
