@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         view.addSubview(activityButton3)
     }
 
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent)  {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent)  {
         activityButton.stopActivity()
         activityButton2.stopActivity()
         activityButton3.stopActivity()
