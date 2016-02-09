@@ -28,7 +28,7 @@ class HGWActivityButton: UIControl {
         self.setUp()
     }
     
-    required init(coder aDecoder: NSCoder)  {
+    required init?(coder aDecoder: NSCoder)  {
         super.init(coder: aDecoder)
         
         self.setUp()
@@ -46,9 +46,8 @@ class HGWActivityButton: UIControl {
         self.addSubview(titleLabel)
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        
-        let touch: AnyObject! = touches.anyObject()
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch: AnyObject! = touches.first
         let touchPoint = touch.locationInView(self)
         
         if CGRectContainsPoint(self.bounds, touchPoint) {
@@ -63,7 +62,7 @@ class HGWActivityButton: UIControl {
         super.touchesEnded(touches, withEvent: event)
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.titleLabel.alpha = 0.25
         super.touchesBegan(touches, withEvent: event)
     }
@@ -71,7 +70,7 @@ class HGWActivityButton: UIControl {
     func startActivity() {
         var i: Int
         for i=1; i<=Int(self.rotatorSpeed * 1.5); ++i {
-            var activityView = UIView(frame: CGRectMake(0.0, 0.0, rotatorSize, rotatorSize))
+            let activityView = UIView(frame: CGRectMake(0.0, 0.0, rotatorSize, rotatorSize))
             activityView.layer.cornerRadius = activityView.frame.size.height / 2
             activityView.backgroundColor = self.rotatorColor
             activityView.alpha = 1.0 / (CGFloat(i) + 0.05)
@@ -82,7 +81,7 @@ class HGWActivityButton: UIControl {
         for view: AnyObject in self.activityViewArray {
             if let activityView = view as? UIView {
                 
-                var pathAnimation = CAKeyframeAnimation(keyPath: "position")
+                let pathAnimation = CAKeyframeAnimation(keyPath: "position")
                 pathAnimation.calculationMode = kCAAnimationLinear
                 pathAnimation.fillMode = kCAFillModeForwards
                 pathAnimation.removedOnCompletion = false
@@ -109,7 +108,7 @@ class HGWActivityButton: UIControl {
         }
         
         self.activityTitle = self.activityTitle.isEqualToString("") ? self.defaultTitle : self.activityTitle
-        self.titleLabel.text = self.activityTitle
+        self.titleLabel.text = self.activityTitle as String
     }
     
     func stopActivity() {
@@ -122,7 +121,7 @@ class HGWActivityButton: UIControl {
         }
         
         if(!self.defaultTitle.isEqualToString("")) {
-            self.titleLabel.text = self.defaultTitle
+            self.titleLabel.text = self.defaultTitle as String
         }
         
         self.activityViewArray.removeAllObjects();
@@ -130,7 +129,7 @@ class HGWActivityButton: UIControl {
     }
     
     func setTitle(title: NSString) {
-        titleLabel.text = title
+        titleLabel.text = title as String
     }
     
     private func degreesToRadians(degrees: CGFloat) -> CGFloat {

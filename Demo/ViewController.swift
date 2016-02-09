@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var activityButton2: HGWActivityButton
     var activityButton3: HGWActivityButton
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.activityButton = HGWActivityButton(frame: CGRectZero)
         self.activityButton2 = HGWActivityButton(frame: CGRectZero)
         self.activityButton3 = HGWActivityButton(frame: CGRectZero)
@@ -60,12 +60,17 @@ class ViewController: UIViewController {
         activityButton3.rotatorSize = 16.0
         activityButton3.rotatorSpeed = 8.0
         activityButton3.rotatorPadding = -7.0
+        activityButton3.addTarget(self, action: Selector("tapped"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(activityButton3)
     }
-
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent)  {
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         activityButton.stopActivity()
         activityButton2.stopActivity()
         activityButton3.stopActivity()
+    }
+    
+    func tapped() {
+        print("Tapped")
     }
 }
