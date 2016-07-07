@@ -60,7 +60,6 @@ class ViewController: UIViewController {
         activityButton3.rotatorSize = 16.0
         activityButton3.rotatorSpeed = 8.0
         activityButton3.rotatorPadding = -7.0
-        activityButton3.addTarget(self, action: Selector("tapped"), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(activityButton3)
     }
     
@@ -68,9 +67,5 @@ class ViewController: UIViewController {
         activityButton.stopActivity()
         activityButton2.stopActivity()
         activityButton3.stopActivity()
-    }
-    
-    func tapped() {
-        print("Tapped")
     }
 }

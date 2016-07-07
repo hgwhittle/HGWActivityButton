@@ -13,6 +13,7 @@
 		04019869195BBD0800D2AA70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04019868195BBD0800D2AA70 /* Images.xcassets */; };
 		04019875195BBD0800D2AA70 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04019874195BBD0800D2AA70 /* DemoTests.swift */; };
 		0401987F195BBD1600D2AA70 /* HGWActivityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401987E195BBD1600D2AA70 /* HGWActivityButton.swift */; };
+		04DB39981D2E926500E4BAAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DB39971D2E926500E4BAAD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		04019873195BBD0800D2AA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04019874195BBD0800D2AA70 /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
 		0401987E195BBD1600D2AA70 /* HGWActivityButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGWActivityButton.swift; sourceTree = "<group>"; };
+		04DB39971D2E926500E4BAAD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				04019861195BBD0800D2AA70 /* AppDelegate.swift */,
 				04019863195BBD0800D2AA70 /* ViewController.swift */,
 				04019865195BBD0800D2AA70 /* Main.storyboard */,
+				04DB39971D2E926500E4BAAD /* LaunchScreen.storyboard */,
 				0401987E195BBD1600D2AA70 /* HGWActivityButton.swift */,
 				04019868195BBD0800D2AA70 /* Images.xcassets */,
 				0401985F195BBD0800D2AA70 /* Supporting Files */,
@@ -163,6 +166,7 @@
 				TargetAttributes = {
 					0401985B195BBD0800D2AA70 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = P72W356S6R;
 					};
 					0401986D195BBD0800D2AA70 = {
 						CreatedOnToolsVersion = 6.0;
@@ -194,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DB39981D2E926500E4BAAD /* LaunchScreen.storyboard in Resources */,
 				04019867195BBD0800D2AA70 /* Main.storyboard in Resources */,
 				04019869195BBD0800D2AA70 /* Images.xcassets in Resources */,
 			);
@@ -331,7 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -344,7 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

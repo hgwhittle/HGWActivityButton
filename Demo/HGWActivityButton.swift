@@ -68,8 +68,7 @@ class HGWActivityButton: UIControl {
     }
     
     func startActivity() {
-        var i: Int
-        for i=1; i<=Int(self.rotatorSpeed * 1.5); ++i {
+        for i in 1...Int(self.rotatorSpeed * 1.5) {
             let activityView = UIView(frame: CGRectMake(0.0, 0.0, rotatorSize, rotatorSize))
             activityView.layer.cornerRadius = activityView.frame.size.height / 2
             activityView.backgroundColor = self.rotatorColor
